@@ -27,21 +27,20 @@ import argparse
 import tensorflow as tf
 
 # system tools
-from pathlib import Path
+import pathlib
 import multiprocessing as mp
-import os
 import sys
+import pickle
 
 # custom modules for loading and processing 
-from data_processing.load_data import load_all_comments
-from data_processing.process_data import process_comments
+from modules.load_data import load_all_comments
+from modules.process_data import process_comments
 
 # custom modules for train pipeline 
-from language_mdl.model_fns import create_model, save_model_card, plt_training_loss
-from language_mdl.tokenizer_saving import save_tokenizer
+from modules.model_fns import create_model, save_model_card, plt_training_loss
 
 # custom logger 
-sys.path.append(str(Path(__file__).parents[1]))
+sys.path.append(str(pathlib.Path(__file__).parents[1]))
 from utils.custom_logging import custom_logger
 
 def input_parse():
@@ -65,7 +64,7 @@ def main():
     np.random.seed(129)
 
     # define filepath, datapath
-    path = Path(__file__) 
+    path = pathlib.Path(__file__) 
     datapath = path.parents[1] / "data"
 
     # initialize logger 
@@ -99,14 +98,16 @@ def main():
 
     # make folder for model contents 
     model_folder = path.parents[1] / "models" / f"model_{max_sequence_len}"  # define folder
-    Path(model_folder).mkdir(parents=True, exist_ok=True) # make if it does not exist
+    model_folder.mkdir(parents=True, exist_ok=True) # make if it does not exist
 
     # save model 
     model.save(model_folder / f"model_{max_sequence_len}.h5")
 
     # save tokenizer
-    tokenizerpath = model_folder / f"tokenizer_{max_sequence_len}.pickle"
-    save_tokenizer(tokenizer, tokenizerpath)
+    tokenizer_path = model_folder / f"tokenizer_{max_sequence_len}.pickle"
+
+    with open(tokenizer_path, "wb") as handle: 
+        pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     # save model card
     save_model_card(model, args.epochs, len(all_comments), max_sequence_len, model_folder)

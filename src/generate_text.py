@@ -22,12 +22,12 @@ Load a trained model and generate next-word predictions from a specified user-in
 from tensorflow import keras
 
 # system tools 
-from pathlib import Path
+import pathlib
 import argparse
+import pickle
 
 # custom module
-from language_mdl.model_fns import generate_text
-from language_mdl.tokenizer_saving import load_tokenizer
+from modules.model_fns import generate_text
 
 def input_parse():
     parser = argparse.ArgumentParser()
@@ -47,7 +47,7 @@ def main():
     args = input_parse()
 
     # define modelfolder path
-    path = Path(__file__) 
+    path = pathlib.Path(__file__) 
     modelpath = path.parents[1] / "models" / args.model_name
 
     # load model 
@@ -57,7 +57,10 @@ def main():
     max_sequence_len = int(args.model_name.split("_")[1]) # split model name e.g., model_278 [model, 278] and choose 2nd element
 
     # load tokenizer 
-    tokenizer = load_tokenizer(modelpath / f"tokenizer_{max_sequence_len}.pickle") # max sequence length in name
+    tokenizer_path = modelpath / f"tokenizer_{max_sequence_len}.pickle" 
+
+    with open(tokenizer_path, 'rb') as handle:
+        tokenizer = pickle.load(handle)
 
     # generate text
     text = generate_text(args.seed_text, args.next_words, model, tokenizer, max_sequence_len)

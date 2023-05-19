@@ -1,15 +1,16 @@
-# Language modelling and text generation using RNNs
+# Language Modelling and Text Generation using RNNs
 
-This repository forms assignment 3 in the subject Language Analytics, Cultural Data Science, F2023. The assignment description can be found [here](https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi/blob/main/assignment-desc.md). 
+This repository forms *assignment 3* by Mina Almasi (202005465) in the subject Language Analytics, Cultural Data Science, F2023. The assignment description can be found [here](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/blob/main/assignment-desc.md). 
 
-The code is written by **Mina Almasi** (202005465) although some code is adapted from code developed in class (see also [Code Reuse](https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi#code-reuse)).
+The repository contains code for training an LSTM (RNN) to do text generation (next word predictions). This process involves preprocessing the dataset, training and saving the LSTM, and finally generating text with the model (see [Results](https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi/tree/main#results) for model card and example of text generation). 
 
-The repository utilizes the comments from the [New York Times Comments dataset](https://www.kaggle.com/datasets/aashita/nyt-comments) for training a LSTM (RNN) to do text generation. This process involves preprocessing the dataset, training and saving a LSTM, and finally generating text. 
+## Dataset 
+The repository utilizes the [New York Times Comments dataset](https://www.kaggle.com/datasets/aashita/nyt-comments). The dataset contains just above 2 million comments from New York Times articles in the time period Jan-May 2017. 
 
-The dataset contains just above 2 million comments, but a model was trained using **only 1000 comments** due to computational limitations (see [Results](https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi/tree/main#results) for model card and example of text generation). **It should be noted that the repository is designed to be able to run on the *entire* dataset**
+Despite the size of the dataset, a model was trained using ```only 1000 comments``` due to computational limitations. **Importantly, it should be noted that the code is designed to be able to run on the *entire* dataset**.
 
 ## Reproducibility
-To reproduce the model training with a 1000 comments and/or generate text, follow the instructions in the [Pipeline](https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi#pipeline) section. This section also contains information on how to train a model with all 2M comments.
+To reproduce the model training with a 1000 comments and/or generate text, follow the instructions in the [Pipeline](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/tree/main#pipeline) section. This section also contains information on how to train a model with all 2M comments.
 
 **NB! Be aware that training the model is computationally heavy. Cloud computing (e.g., UCloud) with high amounts of ram (or a good GPU) is encouraged.** 
 
@@ -43,24 +44,35 @@ The repository is structured as such:
 ```
 
 ## Pipeline 
-This pipeline was built on Ubuntu ([UCloud](https://cloud.sdu.dk/)). 
+The pipeline has been tested on Ubuntu v22.10, Python v3.10.7 ([UCloud](https://cloud.sdu.dk/), Coder Python 1.77.3). Python's [venv](https://docs.python.org/3/library/venv.html) needs to be installed for the pipeline to work.
 
 ### Setup
-First, please download the [New York Times Comments dataset](https://www.kaggle.com/datasets/aashita/nyt-comments) and place all files in the ```data``` folder. Then, run the ```setup.sh``` in the terminal:
+First, please download the [New York Times Comments dataset](https://www.kaggle.com/datasets/aashita/nyt-comments) and place all files in the ```data``` folder. 
+
+Secondly, create a virtual environment (```env```) and install necessary requirements by running:
 ```
 bash setup.sh
 ```
-Running ```setup.sh``` will create a virtual environment (```env```) and install the neccesary packages within it. 
 
-### Training the LSTM 
-To train the model, you can run the ```train.sh``` script: 
+### Running the LSTM pipeline
+To train the model and generate example text, type: 
+```
+bash run.sh
+```
+
+To simply run the training pipeline, type: 
 ```
 bash train.sh
 ```
-**NB! This will train a model on only the first 1000 comments for 50 epocs with an embedding layer of size 10 and a hidden layer of size 30.**
+
+**NB! Note that both options will train a model on only the first 1000 comments for 50 epocs with an embedding layer of size 10 and a hidden layer of size 30.**
 
 ### Custom training of the LSTM
-If you want to run the data on a larger subset or different model setup, you can run the script ```train_model.py``` with additional arguments: 
+If you wish to run the data on a larger subset or different model setup, you can run the script ```train_model.py``` with additional arguments:
+```
+python src/train_model.py -n {SUBSET_DATA} -el {EMBEDDING_LAYER} -hl {HIDDEN_LAYER} -e {EPOCHS}
+```
+
 
 | Arg          | Description                         | Default       |
 | :---         |:---                                 |:---           |
@@ -69,26 +81,11 @@ If you want to run the data on a larger subset or different model setup, you can
 | ```-hl```    | size of hidden layer in LSTM        | 30            |
 | ```-e```     | number of epochs for model training | 50            |
 
-For instance:
-```
-python src/train_model.py -n 10000 -el 100 -hl 60 -e 100
-```
-In the case above, the model will train on a subset of 10,000 comments for 100 epochs with an embedding layer of size 100 and a hidden layer of size 60. 
+NB! Remember to activate the ```env``` first (by running ```source ./env/bin/activate```)
 
-**Note that you need to activate the virtual environment ```env``` prior to running the script:**
-```
-# activate env
-source ./env/bin/activate
-
-# run script 
-python src/train_model.py  -n 10000 -el 100 -hl 60 -e 100
-
-# deactivate env
-deactivate
-```
 
 ### Text generation
-You can generate text by running the python script ```generate_text.py``` with the virtual ```env``` activated (by running ```source ./env/bin/activate```, see also [Custom training](https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi/tree/main#custom-training-of-the-lstm)).
+You can generate text by running the python script ```generate_text.py``` with the virtual ```env``` activated:
 ```
 python src/generate_text.py
 ```
@@ -151,7 +148,3 @@ This repository was created by Mina Almasi:
 * github user: @MinaAlmasi
 * student no: 202005465, AUID: au675000
 * mail: mina.almasi@post.au.dk
-
-
-### Code Reuse 
-Some code was either developed in a previous assignment in the courses *language analytics* or *visual analytics* or taken from class notebooks and adapted. Whenever this is the case, it will be stated in the particular scripts as a ```#comment``` or in the script docstring. 
