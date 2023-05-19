@@ -1,0 +1,18 @@
+Model with a max sequence length of 278, trained on 1000 rows of data 
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ embedding (Embedding)       (None, 277, 10)           98650     
+                                                                 
+ lstm (LSTM)                 (None, 30)                4920      
+                                                                 
+ dropout (Dropout)           (None, 30)                0         
+                                                                 
+ dense (Dense)               (None, 9865)              305815    
+                                                                 
+=================================================================
+Total params: 409,385
+Trainable params: 409,385
+Non-trainable params: 0
+_________________________________________________________________

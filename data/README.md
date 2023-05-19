@@ -1,0 +1,2 @@
+## Data 
+All ```.csv``` files in this folder are ignored by git. Please download the csv files from [kaggle.com](https://www.kaggle.com/datasets/aashita/nyt-comments) and place in this folder to run the scripts.
