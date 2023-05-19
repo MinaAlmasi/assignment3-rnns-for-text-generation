@@ -2,7 +2,7 @@
 
 This repository forms *assignment 3* by Mina Almasi (202005465) in the subject Language Analytics, Cultural Data Science, F2023. The assignment description can be found [here](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/blob/main/assignment-desc.md). 
 
-The repository contains code for training an LSTM (RNN) to do text generation (next word predictions). This process involves preprocessing the dataset, training and saving the LSTM, and finally generating text with the model (see [Results](https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi/tree/main#results) for model card and example of text generation). 
+The repository contains code for training an LSTM (RNN) to do text generation (next word predictions). This process involves preprocessing the dataset, training and saving the LSTM, and finally generating text with the model (see [Results](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation#results) for model card and example of text generation). 
 
 ## Dataset 
 The repository utilizes the [New York Times Comments dataset](https://www.kaggle.com/datasets/aashita/nyt-comments). The dataset contains just above 2 million comments from New York Times articles in the time period Jan-May 2017. 
@@ -122,7 +122,7 @@ _________________________________________________________________
 ```
 ### Loss Curve
 <p align="left">
-  <img width=60% height=60% src="https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-MinaAlmasi/blob/main/models/model_278/loss_model_278.png">
+  <img width=60% height=60% src="https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/blob/main/models/model_278/loss_model_278.png">
 </p>
 
 The loss curve shows a loss that is decreasing but not one that has hit a plateau. This suggests that the model should have trained for more than ```50``` epochs. 
