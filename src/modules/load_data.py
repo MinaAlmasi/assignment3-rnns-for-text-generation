@@ -7,7 +7,7 @@ Script loads all comments from the dataset 'New York Times Comments' (https://ww
 '''
 
 # data processing
-import os 
+import pathlib
 import pandas as pd
 import numpy as np
 
@@ -29,7 +29,7 @@ def load_comments_file(filename, data_dir):
     '''
 
     # define full file path for data directory 
-    filepath = os.path.join(data_dir, filename)
+    filepath = data_dir / filename
 
     # create pandas dataframe for file, read only comment text
     comment_df = pd.read_csv(filepath, usecols=["commentBody"])
@@ -53,7 +53,7 @@ def load_all_comments(data_dir, n_cores=(mp.cpu_count()-1)):
     '''
 
     # get all file_names
-    file_names = [file_name for file_name in os.listdir(data_dir) if "Comments" in file_name]
+    file_names = [file.name for file in sorted(data_dir.iterdir()) if "Comments" in file.name]
 
     # prepare multi args for multiprocess
     multi_load_comments = partial(load_comments_file, data_dir = data_dir)

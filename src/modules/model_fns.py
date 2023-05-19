@@ -103,13 +103,12 @@ def generate_text(seed_text, next_words, model, tokenizer, max_sequence_len): # 
 
 # functions for model info! 
 
-def save_model_card(model, n_epochs:int, n_data:int, max_sequence_len:int, savepath:str):
+def save_model_card(model, n_data:int, max_sequence_len:int, savepath:str):
     '''
     Save model card (summary of layers, trainable parameters) as txt file in desired directory (savepath).
 
     Args: 
         - model: model with defined layers
-        - n_epochs: amount of epochs the model has been trained for
         - n_data: number of data rows the model has been trained on
         - max_sequence_len: highest possible sequence length
         - savepath: path where model card should be saved e.g. models/file.txt

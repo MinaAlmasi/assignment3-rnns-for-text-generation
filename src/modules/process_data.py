@@ -10,7 +10,7 @@ Some functions were fully or partially developed in class. This is denoted besid
 '''
 
 # data processing
-import string, re, os 
+import string, re
 import pandas as pd
 import numpy as np
 

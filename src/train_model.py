@@ -110,7 +110,7 @@ def main():
         pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     # save model card
-    save_model_card(model, args.epochs, len(all_comments), max_sequence_len, model_folder)
+    save_model_card(model, len(all_comments), max_sequence_len, model_folder)
 
     # save loss curve
     plt_training_loss(history, f"model_{max_sequence_len}", model_folder)
