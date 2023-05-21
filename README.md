@@ -30,15 +30,13 @@ The repository is structured as such:
 ├── requirements.txt                 
 ├── setup.sh                         <---   creates virtual env, install necessary reqs (from requirements.txt)
 ├── src
-│   ├── data_processing              
+│   ├── modules
 │   │   ├── load_data.py             <---   functions to load all data (w. multiprocessing)
-│   │   └── process_data.py          <---   functions to clean, tokenize, create & pad input sequences
-│   ├── language_mdl
-│   │   ├── model_fns.py             <---   functions to create model, generate text, save model card and loss curve
-│   │   └── tokenizer_saving.py      <---   functions to save and load tokenizer
-│   ├── generate_text.py             <---   script to generate text
-│   └── train_model.py               <---   script to train model
-├── train.sh                         <---   RUN to train model with subset of 1000 comments for 50 epochs
+│   │   ├── model_fns.py             <---   functions to create model, generate text, save model
+│   │   └── process_data.py          <--- 
+│   ├── generate_text.py             <---   run to generate text
+│   └── train_model.py               <---   run to train model
+├── train.sh                         <---   run to train model w. subset of 1000 comments for 50 epochs & generate example text
 └── utils
     └── custom_logging.py            <---   custom logger to display user msg
 ```

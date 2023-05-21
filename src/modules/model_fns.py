@@ -2,7 +2,7 @@
 Script for Assignment 3, Language Analytics, Cultural Data Science, F2023. 
 
 Script contains functions for creating an LSTM, generating text with a fitted model and saving model card + loss curve. 
-The first two were developed in class, although modified slightly.
+The first two functions were developed in class, although modified slightly.
 
 @MinaAlmasi
 '''
