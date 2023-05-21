@@ -2,7 +2,7 @@
 
 This repository forms *assignment 3* by Mina Almasi (202005465) in the subject Language Analytics, Cultural Data Science, F2023. The assignment description can be found [here](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/blob/main/assignment-desc.md). 
 
-The repository contains code for training an LSTM (RNN) to do text generation (next word predictions). This process involves preprocessing the dataset, training and saving the LSTM, and finally generating text with the model (see [Results](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation#results) for model card and example of text generation). 
+The repository contains code for training an LSTM (RNN) to generate text (performing next word predictions). This process involves preprocessing the dataset, training and saving the LSTM, and finally generating text with the model (see [Results](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation#results) for model card and example of text generation). 
 
 ## Dataset 
 The repository utilizes the [New York Times Comments dataset](https://www.kaggle.com/datasets/aashita/nyt-comments). The dataset contains just above 2 million comments from New York Times articles in the time period Jan-May 2017. 
@@ -12,7 +12,7 @@ Despite the size of the dataset, a model was trained using ```only 1000 comments
 ## Reproducibility
 To reproduce the model training with a 1000 comments and/or generate text, follow the instructions in the [Pipeline](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/tree/main#pipeline) section. This section also contains information on how to train a model with all 2M comments.
 
-**NB! Be aware that training the model is computationally heavy. Cloud computing (e.g., UCloud) with high amounts of ram (or a good GPU) is encouraged.** 
+NB! Be aware that training the model is computationally heavy. Cloud computing (e.g., [UCloud](https://cloud.sdu.dk/)) with high amounts of ram (or a good GPU) is encouraged.
 
 ## Project Structure
 The repository is structured as such:
@@ -85,7 +85,7 @@ NB! Remember to activate the ```env``` first (by running ```source ./env/bin/act
 
 
 ### Text generation
-You can generate text by running the python script ```generate_text.py``` with the virtual ```env``` activated:
+You can generate text by running the script ```generate_text.py``` with the virtual ```env``` activated:
 ```
 python src/generate_text.py
 ```
