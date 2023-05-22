@@ -95,7 +95,7 @@ You can also run your own generation with the custom arguments:
 python src/generate_text.py -t {TEXT_TO_CONTINUE} -n {N_WORDS_TO_GENERATE} -mdl {MODEL}
 ```
 
-| Arg          | Description                                                              | Default                          |
+| <div style="width:50px">Arg</div>             | Description                                                              | Default                          |
 | :---         |:---                                                                      |:---                              |
 | ```-t```     | Text that the model should continue (by generating next word predictions)| "this news article is great but" |
 | ```-n```     | Number of words to generate                                              | 5                                |
