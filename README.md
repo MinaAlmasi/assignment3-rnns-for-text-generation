@@ -3,7 +3,7 @@ Repository link: https://github.com/MinaAlmasi/assignment3-rnns-for-text-generat
 
 This repository forms *assignment 3* by Mina Almasi (202005465) in the subject Language Analytics, Cultural Data Science, F2023. The assignment description can be found [here](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/blob/main/assignment-desc.md). 
 
-The repository contains code for training an LSTM (RNN) to generate text (performing next word predictions). This process involves preprocessing the dataset, training and saving the LSTM, and finally generating text with the model (see [Results](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation#results) for model card and example of text generation). 
+The repository contains code for training an RNN model to generate text (performing next word predictions). This process involves preprocessing the dataset, training and saving the model, and finally generating text (see [Results](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation#results) for model card and example of text generation). 
 
 ## Dataset 
 The repository utilizes the [New York Times Comments dataset](https://www.kaggle.com/datasets/aashita/nyt-comments). The dataset contains just above 2 million comments from New York Times articles in the time period Jan-May 2017. 
@@ -53,7 +53,7 @@ Secondly, create a virtual environment (```env```) and install necessary require
 bash setup.sh
 ```
 
-### Running the LSTM Pipeline
+### Running the Pipeline (Model Training and Generation)
 To train the model and generate example text, type: 
 ```
 bash run.sh
@@ -66,7 +66,7 @@ bash train.sh
 
 **NB! Note that both options will train a model on only the first 1000 comments for 50 epocs with an embedding layer of size 10 and a hidden layer of size 30.**
 
-### Custom Training of the LSTM
+### Custom Training of the Model
 If you wish to run the data on a larger subset or different model setup, you can run the script ```train_model.py``` with additional arguments:
 ```
 python src/train_model.py -n {SUBSET_DATA} -el {EMBEDDING_LAYER} -hl {HIDDEN_LAYER} -e {EPOCHS}
@@ -76,8 +76,8 @@ python src/train_model.py -n {SUBSET_DATA} -el {EMBEDDING_LAYER} -hl {HIDDEN_LAY
 | Arg          | Description                         | Default       |
 | :---         |:---                                 |:---           |
 | ```-n```     | size of data subset                 | None <br /> (i.e., all 2M comments) |
-| ```-el```    | size of embedding layer in LSTM     | 10            |
-| ```-hl```    | size of hidden layer in LSTM        | 30            |
+| ```-el```    | size of embedding layer in model    | 10            |
+| ```-hl```    | size of hidden layer in model       | 30            |
 | ```-e```     | number of epochs for model training | 50            |
 
 NB! Remember to activate the ```env``` first (by running ```source ./env/bin/activate```)
