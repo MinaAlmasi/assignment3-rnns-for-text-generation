@@ -52,7 +52,7 @@ Secondly, create a virtual environment (```env```) and install necessary require
 bash setup.sh
 ```
 
-### Running the LSTM pipeline
+### Running the LSTM Pipeline
 To train the model and generate example text, type: 
 ```
 bash run.sh
@@ -65,7 +65,7 @@ bash train.sh
 
 **NB! Note that both options will train a model on only the first 1000 comments for 50 epocs with an embedding layer of size 10 and a hidden layer of size 30.**
 
-### Custom training of the LSTM
+### Custom Training of the LSTM
 If you wish to run the data on a larger subset or different model setup, you can run the script ```train_model.py``` with additional arguments:
 ```
 python src/train_model.py -n {SUBSET_DATA} -el {EMBEDDING_LAYER} -hl {HIDDEN_LAYER} -e {EPOCHS}
@@ -82,7 +82,7 @@ python src/train_model.py -n {SUBSET_DATA} -el {EMBEDDING_LAYER} -hl {HIDDEN_LAY
 NB! Remember to activate the ```env``` first (by running ```source ./env/bin/activate```)
 
 
-### Text generation
+### Text Generation
 You can generate text by running ```generate_text.py``` with the virtual ```env``` activated:
 ```
 python src/generate_text.py
@@ -142,7 +142,7 @@ This is somewhat intelligible, but the model breaks down when it has to produce 
 this news article is great but the gop is a security and the gop is a security and the gop is
 ```
 
-### Remarks on the performance
+### Remarks on the Performance
 Along with the loss curve, the repetitive text generation suggests that the model training was not entirely succesful. 
 
 Model performance may be improved when running on the entire dataset. Possible improvements may also come from adding more hidden layers, a larger embedding layer (or [pre-trained GloVe embeddings](https://nlp.stanford.edu/projects/glove/)) along with more epochs. However, all these options require greater computational power than what was available at the time of making this repository. 
