@@ -83,16 +83,23 @@ NB! Remember to activate the ```env``` first (by running ```source ./env/bin/act
 
 
 ### Text generation
-You can generate text by running the script ```generate_text.py``` with the virtual ```env``` activated:
+You can generate text by running ```generate_text.py``` with the virtual ```env``` activated:
 ```
 python src/generate_text.py
 ```
 By default, this will generate a ```5-word``` continuation to the sentence ```"this news article is great but"```
 
-You can specify also your own text ```-t``` and decide how many words to generate with the ```-n``` parameter:
+You can also run your own generation with the custom arguments:
 ```
-python src/generate_text.py -t "the election was great" -n 20
+python src/generate_text.py -t {TEXT_TO_CONTINUE} -n {N_WORDS_TO_GENERATE} -mdl {MODEL}
 ```
+
+| Arg          | Description                                                              | Default                          |
+| :---         |:---                                                                      |:---                              |
+| ```-t```     | Text that the model should continue (by generating next word predictions)| "this news article is great but" |
+| ```-n```     | Number of words to generate                                              | 5                                |
+| ```-mdl```   | the model you want to load and use for generating text                   | "model_278"                      |
+
 
 ## Results
 ### Model Card

@@ -4,17 +4,14 @@ Script for Assignment 3, Language Analytics, Cultural Data Science, F2023
 This script contains a pipeline to train LSTM on the comments from the New York Times Comments dataset (https://www.kaggle.com/datasets/aashita/nyt-comments). 
 The pipeline will both load the data, process that data (tokenization, padding input sequences), train the model and finally save the model. 
 
-    To run the script in the terminal, type: 
-        python src/train_model.py 
+In the terminal, run the script by typing:
+    python src/train_model.py -n {SUBSET_DATA} -el {EMBEDDING_LAYER} -hl {HIDDEN_LAYER} -e {EPOCHS}
     
-    The additional arguments are (if left unspecified, defaults will run)
-        -n: how many comments the fitting should run on (n_samples). Defaults to all of them. May be too computationally heavy!
-        -hl: size of hidden layer. Defaults to 30. 
-        -el: size of embedding layer. Defaults to 10.
-        -e: how many epochs the model training should be. Defaults to 50.
-
-    For instance: 
-        python src/train_model.py -n 1000 -hl 40 
+Additional arguments for running the script:
+    -n: the number of comments the model should train on (n_samples). Defaults to all of them. NB. may be too computationally heavy.
+    -el: size of embedding layer. Defaults to 10.
+    -hl: size of hidden layer. Defaults to 30. 
+    -e: how many epochs the model training should be. Defaults to 50.
 
 @MinaAlmasi
 '''

@@ -3,17 +3,13 @@ Script for Assignment 3, Language Analytics, Cultural Data Science, F2023
 
 Load a trained model and generate next-word predictions from a specified user-input. 
 
-    In the terminal, run the script by typing:
-        python src/generate_text.py
+In the terminal, run the script by typing:
+    python src/generate_text.py -t {TEXT_TO_CONTINUE} -n {N_WORDS_TO_GENERATE} -mdl {MODEL} 
 
-    The additional arguments are (if left unspecified, defaults will run)
-        -t: the text that the model should generate next-word predictions from. Defaults to "this news article is great but".
-        -n: how many next-word predictions you want. Defaults to 5. 
-        -mdl: the model you want to load and use for generating txt. Defaults to "model_278".
-
-
-    E.g., 
-        python src/generate_text.py -t "this news article is horrible but" -n 20
+Additional arguments for running the script:
+    -t: the text that the model should generate next-word predictions from. Defaults to "this news article is great but".
+    -n: how many next-word predictions you want. Defaults to 5. 
+    -mdl: the model you want to load and use for generating txt. Defaults to "model_278".
 
 @MinaAlmasi
 '''
