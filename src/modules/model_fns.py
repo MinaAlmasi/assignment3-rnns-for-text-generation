@@ -1,7 +1,7 @@
 '''
 Script for Assignment 3, Language Analytics, Cultural Data Science, F2023. 
 
-Script contains functions for creating an LSTM, generating text with a fitted model and saving model card + loss curve. 
+Script contains functions for creating an RNN model, generating text with a fitted model and saving model card + loss curve. 
 The first two functions were developed in class, although modified slightly.
 
 @MinaAlmasi
@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 # functions for creating model and generating text from trained model
 def create_model(max_sequence_len:int, embedding_layer_size: int, hidden_layer_size:int, vocabulary_size:int): # developed in class, but slightly modified
     '''
-    Create basic LSTM model
+    Create basic RNN model for text generation
 
     Args: 
         - max_sequence_len: highest possible sequence length 
@@ -32,7 +32,7 @@ def create_model(max_sequence_len:int, embedding_layer_size: int, hidden_layer_s
         - vocabulary_size: total words that model knows (tokens)
 
     Returns:
-        - model: tensorflow LSTM model
+        - model: tensorflow model
     '''
 
     # define input length
