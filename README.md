@@ -1,4 +1,5 @@
 # Language Modelling and Text Generation using RNNs
+Repository link: https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation 
 
 This repository forms *assignment 3* by Mina Almasi (202005465) in the subject Language Analytics, Cultural Data Science, F2023. The assignment description can be found [here](https://github.com/MinaAlmasi/assignment3-rnns-for-text-generation/blob/main/assignment-desc.md). 
 
