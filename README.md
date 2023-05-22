@@ -36,7 +36,7 @@ The repository is structured as such:
 │   │   └── process_data.py          <--- 
 │   ├── generate_text.py             <---   run to generate text
 │   └── train_model.py               <---   run to train model
-├── train.sh                         <---   run to train model w. subset of 1000 comments for 50 epochs & generate example text
+├── train.sh                         <---   run to train model w. data subset & generate example text
 └── utils
     └── custom_logging.py            <---   custom logger to display user msg
 ```
