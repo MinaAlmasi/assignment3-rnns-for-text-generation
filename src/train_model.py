@@ -1,7 +1,7 @@
 '''
 Script for Assignment 3, Language Analytics, Cultural Data Science, F2023
 
-This script contains a pipeline to train LSTM on the comments from the New York Times Comments dataset (https://www.kaggle.com/datasets/aashita/nyt-comments). 
+This script contains a pipeline to train an RNN model for text generation on the comments from the New York Times Comments dataset (https://www.kaggle.com/datasets/aashita/nyt-comments). 
 The pipeline will both load the data, process that data (tokenization, padding input sequences), train the model and finally save the model. 
 
 In the terminal, run the script by typing:
